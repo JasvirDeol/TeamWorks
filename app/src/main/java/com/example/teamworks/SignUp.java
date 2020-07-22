@@ -3,6 +3,7 @@ package com.example.teamworks;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -10,6 +11,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.google.android.material.snackbar.Snackbar;
 
 public class SignUp extends AppCompatActivity {
     EditText t1,t2,t3,t4;
@@ -34,17 +37,22 @@ public class SignUp extends AppCompatActivity {
                 String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
                 if(!emailid.matches(emailPattern))
                 {
-                    Toast.makeText(SignUp.this, "Enter a valid email", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(SignUp.this, "Enter a valid email", Toast.LENGTH_SHORT).show();
+                    Snackbar snackBar = Snackbar .make(view, "Enter an valid email", Snackbar.LENGTH_SHORT);
+                    snackBar.show();
                 }
                 else if(!password.equals(confirmpassword))
                 {
-                    Toast.makeText(SignUp.this, "Password not matched", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(SignUp.this, "Password not matched", Toast.LENGTH_SHORT).show();
+                    Snackbar snackBar = Snackbar .make(view, "Password not matched", Snackbar.LENGTH_SHORT);
+                    snackBar.show();
                 }
                 else {
                     User user = new User(SignUp.this);
                     boolean b = user.addUser(emailid, name, password);
                     if (b) {
                         Toast.makeText(SignUp.this, "User Added", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(SignUp.this,MainActivity.class));
                     }
                 }
 
