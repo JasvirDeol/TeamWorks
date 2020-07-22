@@ -40,12 +40,13 @@ public class SignUp extends AppCompatActivity {
                 {
                     Toast.makeText(SignUp.this, "Password not matched", Toast.LENGTH_SHORT).show();
                 }
-             User user=new User(SignUp.this);
-             boolean b=user.addUser(emailid,name,password);
-             if(b)
-             {
-                 Toast.makeText(SignUp.this, "User Added", Toast.LENGTH_SHORT).show();
-             }
+                else {
+                    User user = new User(SignUp.this);
+                    boolean b = user.addUser(emailid, name, password);
+                    if (b) {
+                        Toast.makeText(SignUp.this, "User Added", Toast.LENGTH_SHORT).show();
+                    }
+                }
 
 
             }
