@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
 
@@ -33,6 +34,12 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+
+        View parentLayout = findViewById(android.R.id.content);
+        Snackbar snackBar = Snackbar .make(parentLayout, "Login Successful", Snackbar.LENGTH_SHORT);
+        snackBar.show();
+
         Toolbar toolbar=findViewById(R.id.toolbar3);
         setSupportActionBar(toolbar);
         drawerLayout=findViewById(R.id.drawer);

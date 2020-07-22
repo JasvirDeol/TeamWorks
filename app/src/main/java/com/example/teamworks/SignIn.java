@@ -38,6 +38,7 @@ public class SignIn extends AppCompatActivity {
                             {
                                 Intent in=new Intent(SignIn.this,HomeActivity.class);
                                 in.putExtra("emailid",emailid);
+
                                 startActivity(in);
                                 found=1;
                                 break;
@@ -49,7 +50,7 @@ public class SignIn extends AppCompatActivity {
                 if(found==0)
                 {
                   //  Toast.makeText(SignIn.this, "Invalid", Toast.LENGTH_SHORT).show();
-                    Snackbar snackBar = Snackbar .make(view, "Invalid combination", Snackbar.LENGTH_SHORT);
+                    Snackbar snackBar = Snackbar .make(view, "Login Failed. Please check your credentials", Snackbar.LENGTH_SHORT);
                     snackBar.show();
                 }
 
