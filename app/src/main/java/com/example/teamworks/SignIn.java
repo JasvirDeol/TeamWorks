@@ -34,8 +34,9 @@ public class SignIn extends AppCompatActivity {
                     do {
                             if(c.getString(c.getColumnIndex("emailid")).equals(emailid) && c.getString(c.getColumnIndex("password")).equals(password))
                             {
-                                Toast.makeText(SignIn.this, "valid", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(SignIn.this,HomeActivity.class));
+                                Intent in=new Intent(SignIn.this,HomeActivity.class);
+                                in.putExtra("emailid",emailid);
+                                startActivity(in);
                                 found=1;
                                 break;
                             }
