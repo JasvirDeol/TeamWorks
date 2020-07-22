@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
+
 public class SignIn extends AppCompatActivity {
 
     EditText t1,t2;
@@ -46,7 +48,9 @@ public class SignIn extends AppCompatActivity {
                 }
                 if(found==0)
                 {
-                    Toast.makeText(SignIn.this, "Invalid", Toast.LENGTH_SHORT).show();
+                  //  Toast.makeText(SignIn.this, "Invalid", Toast.LENGTH_SHORT).show();
+                    Snackbar snackBar = Snackbar .make(view, "Invalid combination", Snackbar.LENGTH_SHORT);
+                    snackBar.show();
                 }
 
 
